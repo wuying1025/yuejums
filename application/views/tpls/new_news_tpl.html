@@ -1,0 +1,25 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add-news-form" class="form-horizontal" role="form" action="news/news_add" method="post">
+            <div class="form-group">
+                <label for="uname" class="col-lg-2 col-sm-2 control-label">新闻标题</label>
+                <div class="col-lg-8">
+                    <input id="uname" type="text" class="form-control" placeholder="请输入标题" name="newsTitle">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">新闻内容</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <div id="new-container" name="content"></div>
+                    <!--<input type="hidden" id='news-content' name="newsContent">-->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

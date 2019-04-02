@@ -1,0 +1,218 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <input type="hidden" id="order_id" value="{{order_id}}">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单编号</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static" id="order-no">{{order_no}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">房源名称</label>
+                            <div class="col-lg-10">
+                                <p class="form-control house-choose-end">{{title}}</p>
+                                <a href="#myModal-plot2" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择房源</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单金额</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control price" value="{{price}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单用户</label>
+                            <div class="col-lg-10">
+                                <p class="form-control user-choose-end">{{username}}</p>
+                                <a href="#myModal-plot" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择用户</a>
+                                <a href="#myModal-plot1" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button">创建新用户</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">用户电话</label>
+                            <div class="col-lg-10">
+                                <p class="form-control tel">{{tel}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">紧急联系人</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control urgency-concat" value="{{urgency_concat}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">紧急联系人电话</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control urgency_contact_tel" value="{{urgency_contact_tel}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">押金</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control cash_pledge" value="{{cash_pledge}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">退还押金</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control return_cash_pledge" value="{{return_cash_pledge}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">支付方式</label>
+                            <div class="col-lg-10">
+                                <label for="cash"><input name="pay" type="radio" id="cash" value="现金" {{cash_pledge_pay_way=='现金'?'checked':''}}>现金</label>
+                                <label for="Alipay"><input name="pay" type="radio" id="Alipay" value="支付宝" {{cash_pledge_pay_way=='支付宝'?'checked':''}}>支付宝</label>
+                                <label for="Wechat"><input name="pay" type="radio" id="Wechat" value="微信" {{cash_pledge_pay_way=='微信'?'checked':''}}>微信</label>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">下单时间</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-inline input-medium add_time" size="16" type="text" value="{{add_time}}" name="add_time" id="add_time"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">起始日期</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="{{start_time}}" name="start_time" id="start_time"/>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">结束日期</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="{{end_time}}" name="end_time" id="end_time"/>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单状态</label>
+                            <div class="col-lg-10">
+                                <select name="status" id="status">
+                                    <option value="用户取消" {{status=='用户取消'?'selected':''}}>用户取消</option>
+                                    <option value="未支付" {{status=='未支付'?'selected':''}}>未支付</option>
+                                    <option value="已支付" {{status=='已支付'?'selected':''}}>已支付</option>
+                                    <option value="入住中" {{status=='入住中'?'selected':''}}>入住中</option>
+                                    <option value="已完成" {{status=='已完成'?'selected':''}}>已完成</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单类型</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control order_type" value="{{order_type}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单备注</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control order_memo" value="{{order_memo}}">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">入住备注</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control checkin_memo" value="{{checkin_memo}}">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">退房备注</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control checkout_mark" value="{{checkout_mark}}">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">退房时是否有问题</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control checkout_has_problem" value="{{checkout_has_problem}}">
+
+                            </div>
+                        </div>
+                        {{if is_invoice==0}}
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">发票信息不完整</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{if is_invoice==1 && voiced==0}}
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">未索取</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="invoice_create" title="{{order_id}}">索取发票</button>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{if is_invoice==1 && voiced==1}}
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">已索取</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <div class="checkIn-container-dad">
+                            {{each user as checkin}}
+                            <div class="checkIn-container">
+                                <legend></legend>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">入住用户</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="checkin_name" class="form-control checkin_name" value="{{checkin.name}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">联系方式</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="checkin_phone" class="form-control checkin_phone" value="{{checkin.tel}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">身份证号</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="checkin_card" class="form-control checkin_card" value="{{checkin.id_card}}">
+                                    </div>
+                                </div>
+                                <legend></legend>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label"></label>
+                                <div class="col-lg-10">
+                                    <input type="button" name="delete" class="btn btn-primary delete" value="删除本条信息">
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <div class="form-group need-add-dad">
+                            <label class="col-lg-2 col-sm-2 control-label">添加</label>
+                            <div class="col-lg-10">
+                                <div class="btn btn-default need-add">添加入住信息</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label"></label>
+                            <div class="col-lg-10">
+                                <div id="edit-order" class="btn btn-primary">确定</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

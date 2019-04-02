@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class=" form">
+                        <form class="cmxform form-horizontal adminex-form" id="editForm" method="post" action="news/news_edit">
+                            <input type="hidden" name="newsId" value="{{news_id}}">
+                            <div class="form-group">
+                                <label for="uname" class="col-lg-2 col-sm-2 control-label">新闻标题</label>
+                                <div class="col-lg-8">
+                                    <input id="uname" type="text" class="form-control" value="{{news_title}}" name="newsTitle">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">新闻内容</label>
+                                <div class="col-sm-8">
+
+                                    <!-- 加载编辑器的容器 -->
+                                    <div id="container" name="content"></div>
+                                    <input type="hidden" id='news-content' name="newsContent" value="{{news_content}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>
